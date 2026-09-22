@@ -1,0 +1,28 @@
+# bai-gjc-starter 프로필 (bai-gjc, GJC_CONFIG_DIR=.gjc-bai).
+# 메인 + 서브에이전트 전부 B.AI 한 키(BAI_API_KEY). 90% 할인 이벤트 모델 위주.
+# 내장 유료 provider(anthropic/openai/openrouter)는 실수 방지용으로 비활성화.
+disabledProviders:
+  - openrouter
+  - anthropic
+  - openai
+modelRoles:
+  default:   bai/deepseek-v4.1-flash    # 메인 두뇌: DeepSeek-V4.1-Flash (1M ctx, 90% 할인)
+  executor:  bai/glm-5.3-flash          # 코드 실행 일꾼: GLM-5.3-Flash (90% 할인)
+  architect: bai/deepseek-v4.1-flash
+  planner:   bai/qwen3.8-flash          # 계획: Qwen3.8-Flash (90% 할인)
+  critic:    bai/qwen3.8-flash
+retry:
+  # 어느 모델이 죽어도 같은 B.AI 키 안에서 다른 할인 모델로 넘어감.
+  fallbackChains:
+    bai/deepseek-v4.1-flash:
+      - bai/deepseek-v4-flash
+      - bai/glm-5.3-flash
+      - bai/qwen3.8-flash
+    bai/glm-5.3-flash:
+      - bai/deepseek-v4.1-flash
+      - bai/qwen3.8-flash
+    bai/qwen3.8-flash:
+      - bai/glm-5.3-flash
+      - bai/deepseek-v4.1-flash
+theme:
+  dark: opencode

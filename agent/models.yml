@@ -1,0 +1,77 @@
+# bai-gjc-starter — B.AI 저가 프로필 for gajae-code (gjc).
+#
+# 메인(default) + 서브에이전트 전부 B.AI 한 키로 쓴다. (OpenAI 호환 /v1/chat/completions)
+#
+# ★ 이 파일에는 비밀정보가 하나도 없다. 키는 환경변수 "이름"(apiKeyEnv)으로만 참조한다.
+#   진짜 키는 각자 자기 셸 환경변수 BAI_API_KEY 에 넣는다 (README 참고). 리터럴로 박지 마라.
+#
+# 모델 id가 바뀌었으면:  curl https://api.b.ai/v1/models -H "Authorization: Bearer $BAI_API_KEY"
+# cost 는 B.AI "표준가"(할인 전, USD/1M). 실제 청구는 이벤트 할인 반영 → 플랫폼 표시가 기준.
+
+providers:
+  bai:
+    baseUrl: https://api.b.ai/v1
+    apiKeyEnv: BAI_API_KEY
+    api: openai-completions
+    models:
+      # --- 메인 추천: DeepSeek-V4.1-Flash (552B MoE, 1M ctx, 이벤트 90% 할인) ---
+      - id: deepseek-v4.1-flash
+        name: DeepSeek-V4.1-Flash · B.AI (90% 할인 이벤트)
+        reasoning: true
+        input: [text, image]
+        contextWindow: 1000000
+        maxTokens: 65536
+        cost: { input: 0.30, output: 1.20, cacheRead: 0.006, cacheWrite: 0.30 }
+      # 예전 이름(B.AI가 V4.1-Flash로 라우팅함). 위 id가 no match 나면 이걸로.
+      - id: deepseek-v4-flash
+        name: DeepSeek-V4-Flash (→V4.1 라우팅) · B.AI
+        reasoning: true
+        input: [text, image]
+        contextWindow: 1000000
+        maxTokens: 65536
+        cost: { input: 0.30, output: 1.20, cacheRead: 0.006, cacheWrite: 0.30 }
+
+      # --- GLM-5.3-Flash (1M ctx, 최저 10% 이벤트) ---
+      - id: glm-5.3-flash
+        name: GLM-5.3-Flash · B.AI (90% 할인 이벤트)
+        reasoning: true
+        input: [text]
+        contextWindow: 1000000
+        maxTokens: 65536
+        cost: { input: 0.15, output: 0.50, cacheRead: 0.03, cacheWrite: 0.15 }
+
+      # --- GLM-5.3 풀사이즈 (표준가의 90% 이벤트 = 10% 할인) ---
+      - id: glm-5.3
+        name: GLM-5.3 · B.AI
+        reasoning: true
+        input: [text]
+        contextWindow: 200000
+        maxTokens: 65536
+        cost: { input: 1.40, output: 4.40, cacheRead: 0.28, cacheWrite: 1.40 }
+
+      # --- Qwen3.8-Flash (1M ctx, 멀티모달, 10% 이벤트) ---
+      - id: qwen3.8-flash
+        name: Qwen3.8-Flash · B.AI (90% 할인 이벤트)
+        reasoning: true
+        input: [text, image]
+        contextWindow: 1000000
+        maxTokens: 65536
+        cost: { input: 0.16, output: 0.47, cacheRead: 0.016, cacheWrite: 0.16 }
+
+      # --- Qwen3.8-Max (상위 모델, 표준가) ---
+      - id: qwen3.8-max
+        name: Qwen3.8-Max · B.AI
+        reasoning: true
+        input: [text, image]
+        contextWindow: 1000000
+        maxTokens: 65536
+        cost: { input: 2.00, output: 6.00, cacheRead: 0.25, cacheWrite: 2.00 }
+
+      # --- MiniMax M3 (1M ctx, 저가) ---
+      - id: minimax-m3
+        name: MiniMax M3 · B.AI
+        reasoning: true
+        input: [text]
+        contextWindow: 1000000
+        maxTokens: 65536
+        cost: { input: 0.30, output: 1.20, cacheRead: 0.06, cacheWrite: 0.30 }

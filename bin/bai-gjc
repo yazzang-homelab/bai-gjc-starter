@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# bai-gjc — run gjc with the B.AI starter profile (~/.gjc-bai).
+# main + subagents = B.AI (one key: BAI_API_KEY). Bare `gjc` keeps using ~/.gjc, untouched.
+set -euo pipefail
+export GJC_CONFIG_DIR="${GJC_BAI_DIR:-.gjc-bai}"
+# An inherited *_CODING_AGENT_DIR would point back at another profile; drop it.
+unset GJC_CODING_AGENT_DIR PI_CODING_AGENT_DIR PI_CONFIG_DIR
+if [ -z "${BAI_API_KEY:-}" ]; then
+  echo "BAI_API_KEY 가 비어 있습니다. https://chat.b.ai/chat 에서 키 발급 후:" >&2
+  echo '  export BAI_API_KEY="sk-..."   (README 6번 참고)' >&2
+  exit 1
+fi
+# Reasoning models + long context can exceed gjc's default 100s first-token watchdog.
+export PI_STREAM_FIRST_EVENT_TIMEOUT_MS="${PI_STREAM_FIRST_EVENT_TIMEOUT_MS:-300000}"
+export PI_STREAM_IDLE_TIMEOUT_MS="${PI_STREAM_IDLE_TIMEOUT_MS:-180000}"
+# Scrub inherited paid-provider creds so this profile never bills them by accident.
+while IFS='=' read -r _n _; do
+  case "$_n" in ANTHROPIC_*|OPENAI_API_KEY|OPENROUTER_API_KEY) unset "$_n" || true ;; esac
+done < <(env)
+exec gjc "$@"
