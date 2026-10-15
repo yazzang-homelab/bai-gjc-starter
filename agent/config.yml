@@ -1,28 +1,33 @@
-# bai-gjc-starter 프로필 (bai-gjc, GJC_CONFIG_DIR=.gjc-bai).
-# 메인 + 서브에이전트 전부 B.AI 한 키(BAI_API_KEY). 90% 할인 이벤트 모델 위주.
-# 내장 유료 provider(anthropic/openai/openrouter)는 실수 방지용으로 비활성화.
+# bai-gjc-starter 프로필 (bai-gjc 런처가 GJC_CODING_AGENT_DIR=~/.gjc-bai/agent 로 실행).
+# 메인 + 서브에이전트 전부 B.AI 키 하나(BAI_API_KEY). 2026-10-15 기준 할인율로 배치.
+#
+# 각 역할은 목록 = 폴백 체인: 맨 위 모델이 오류·과부하면 다음 모델로 자동 전환된다.
+#   할인 후 단가(USD/1M, 입력/출력)  MiMo-V2.6-Flash 0.014/0.028 · Qwen3.8-Flash 0.048/0.141 ·
+#   GLM-5.3-Flash 0.105/0.35 · DeepSeek-V4.1-Flash 0.18/0.72(피크) · MiMo-V2.6-Pro 0.2175/0.435
+#
+# 실수로 다른 유료 provider가 쓰이지 않게 내장 openrouter/anthropic/openai는 끈다.
+# 주의: gjc가 처음 실행될 때 이 파일을 다시 쓰면서 주석을 지울 수 있다. 정상이다.
 disabledProviders:
   - openrouter
   - anthropic
   - openai
 modelRoles:
-  default:   bai/deepseek-v4.1-flash    # 메인 두뇌: DeepSeek-V4.1-Flash (1M ctx, 90% 할인)
-  executor:  bai/glm-5.3-flash          # 코드 실행 일꾼: GLM-5.3-Flash (90% 할인)
-  architect: bai/deepseek-v4.1-flash
-  planner:   bai/qwen3.8-flash          # 계획: Qwen3.8-Flash (90% 할인)
-  critic:    bai/qwen3.8-flash
-retry:
-  # 어느 모델이 죽어도 같은 B.AI 키 안에서 다른 할인 모델로 넘어감.
-  fallbackChains:
-    bai/deepseek-v4.1-flash:
-      - bai/deepseek-v4-flash
-      - bai/glm-5.3-flash
-      - bai/qwen3.8-flash
-    bai/glm-5.3-flash:
-      - bai/deepseek-v4.1-flash
-      - bai/qwen3.8-flash
-    bai/qwen3.8-flash:
-      - bai/glm-5.3-flash
-      - bai/deepseek-v4.1-flash
+  default:
+    - bai/mimo-v2.6-pro
+    - bai/deepseek-v4.1-flash
+    - bai/mimo-v2.6-flash
+  architect:
+    - bai/mimo-v2.6-pro
+    - bai/deepseek-v4.1-flash
+  executor:
+    - bai/mimo-v2.6-flash
+    - bai/qwen3.8-flash
+    - bai/glm-5.3-flash
+  planner:
+    - bai/qwen3.8-flash
+    - bai/mimo-v2.6-flash
+  critic:
+    - bai/qwen3.8-flash
+    - bai/mimo-v2.6-flash
 theme:
   dark: opencode

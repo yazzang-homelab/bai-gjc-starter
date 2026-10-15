@@ -75,21 +75,29 @@
     <br>그리고 <b>충전은 반드시 공식 주소</b>(<code>chat.b.ai</code> / <code>chat.bankofai.io</code>)에서만. 검색 광고·낯선 링크로 들어가서 지갑 연결하지 마세요.
   </div>
 
-  <h2 id="why">0. 왜 B.AI인가 — 지금 이벤트 (2026-09-22 기준)</h2>
+  <h2 id="why">0. 왜 B.AI인가 — 지금 할인 (2026-10-15 기준)</h2>
+  <div class="warn"><b>할인율이 바뀌었습니다.</b> 9월 22일의 "DeepSeek·GLM·Qwen 전부 90% 할인"은 끝났습니다. 예전에 설치했다면 아래 4번의 <b><code>--force</code> 재설치</b>로 새 배치를 받으세요.</div>
+  <table>
+    <tr><th>모델</th><th>지금 할인</th><th>예전(9/22)</th><th>할인 후 단가 (입력 / 출력, USD·1M 토큰)</th></tr>
+    <tr><td><b>MiMo-V2.6-Flash</b></td><td><span class="tag sale">90%</span> 9/25~</td><td>—</td><td>$0.014 / $0.028</td></tr>
+    <tr><td><b>Qwen3.8-Flash</b></td><td><span class="tag sale">70%</span> 9/25~</td><td>90%</td><td>$0.048 / $0.141</td></tr>
+    <tr><td><b>MiMo-V2.6-Pro</b></td><td><span class="tag sale">50%</span> 9/25~</td><td>—</td><td>$0.2175 / $0.435</td></tr>
+    <tr><td><b>DeepSeek-V4.1-Flash</b></td><td><span class="tag sale">40%</span> 10/4~</td><td>90%</td><td>$0.18 / $0.72 (피크) · 비피크 절반</td></tr>
+    <tr><td><b>GLM-5.3-Flash</b></td><td><span class="tag sale">30%</span> 10/4~</td><td>90%</td><td>$0.105 / $0.35</td></tr>
+    <tr><td>GLM-5.3</td><td>10%</td><td>10%</td><td>$1.26 / $3.96</td></tr>
+  </table>
   <table>
     <tr><th>항목</th><th>내용</th></tr>
-    <tr><td><b>토큰 1+1 충전</b></td><td><b>BNB Chain</b>으로 온체인 결제하면 충전액의 <b>+100%</b> 보너스. 카드·기타 일반 충전은 <b>+50%</b>. <span class="muted">(보너스 크레딧은 지급 후 30일 유효 — 쓸 만큼만 충전)</span></td></tr>
-    <tr><td><b>90% 할인 모델</b></td><td><b>DeepSeek-V4.1-Flash</b>, <b>GLM-5.3-Flash</b>, <b>Qwen3.8-Flash</b>가 표준가의 <b>10%</b>. 예: DeepSeek 출력 <code>$1.20</code>→<code>$0.12</code>/1M 토큰. GLM-5.3(풀) 10%·GLM-5.2 40% 할인.</td></tr>
-    <tr><td><b>속도</b></td><td>서브에이전트 여러 개 물려도 <b>100 tok/s 이상</b> 나옵니다. 무료 티어 대기열·타임아웃 없음.</td></tr>
-    <tr><td><b>한 키로 전부</b></td><td>OpenAI 호환 API 한 곳(<code>https://api.b.ai/v1</code>)에서 DeepSeek·GLM·Qwen·MiniMax·Kimi에 GPT·Claude·Gemini까지. 메인/서브 나눠 쓸 때 키 3~4개 발급할 필요 없음.</td></tr>
+    <tr><td><b>충전 보너스</b></td><td>사이트 배너 기준 충전 보너스 이벤트(최대 $100) 진행 중. 조건(결제 수단별 비율·유효기간)은 <b>Top up</b> 화면 표시가 기준입니다.</td></tr>
+    <tr><td><b>한 키로 전부</b></td><td>OpenAI 호환 API 한 곳(<code>https://api.b.ai/v1</code>)에서 MiMo·Qwen·DeepSeek·GLM·MiniMax·Kimi에 GPT·Claude·Gemini까지. 메인/서브 나눠 쓸 때 키 여러 개 발급할 필요 없음.</td></tr>
   </table>
-  <p class="muted">※ 할인·보너스 조건과 기간은 B.AI가 바꿀 수 있습니다. 최신은 <a href="https://docs.b.ai/llmservice/promotions-and-pricing-notices/" target="_blank" rel="noopener">공식 프로모션 페이지</a>와 충전 화면 표시가 기준.</p>
-  <div class="ok"><b>얼마나 드나?</b> DeepSeek-V4.1-Flash 할인가는 입력 $0.03 / 출력 $0.12 (1M 토큰, 피크 기준). <b>$5 충전(+보너스 $2.5~5)</b>이면 코딩 작업 수십 시간 분량. 무료 티어에서 하루 20번 막히던 사람이면 체감이 다릅니다.</div>
+  <p class="muted">※ 할인·보너스 조건과 기간은 B.AI가 바꿀 수 있습니다. 최신은 <a href="https://docs.b.ai/llmservice/promotions-and-pricing-notices/" target="_blank" rel="noopener">공식 프로모션 페이지</a>와 B.AI 화면 표시가 기준.</p>
+  <div class="ok"><b>얼마나 드나?</b> 서브에이전트(executor)의 기본 모델 MiMo-V2.6-Flash는 출력 1M 토큰에 $0.028, 메인 MiMo-V2.6-Pro는 $0.435입니다. 잔액은 B.AI 왼쪽 메뉴 <b>Usage</b>에서 요청별로 확인하세요.</div>
 
   <h2 id="prep">1. 준비물 (5분)</h2>
   <ul>
     <li><b>구글 계정</b> 또는 <b>Web3 지갑</b>(MetaMask 등) — B.AI 로그인용. 둘 중 하나면 됨.</li>
-    <li>충전 수단: <b>카드</b>(Stripe) 또는 <b>BNB Chain 지갑</b>(1+1 받으려면 이쪽).</li>
+    <li>충전 수단: <b>카드</b>(Stripe) 또는 <b>온체인 지갑</b>(BNB Chain 등).</li>
     <li>인터넷 되는 <b>윈도우 PC</b> 또는 <b>맥</b>.</li>
     <li>이미 <a href="https://yazzang-homelab.github.io/free-gjc-starter/guide.html" target="_blank" rel="noopener">free-gjc-starter</a>를 깔았다면 3번은 건너뛰고 4번부터. 두 세팅은 <b>따로 격리</b>(<code>~/.gjc-free</code> vs <code>~/.gjc-bai</code>)돼서 충돌 없음.</li>
   </ul>
@@ -139,7 +147,9 @@ cd bai-gjc-starter
 bash install.sh</code></pre>
   <p class="muted">❔ <code>git ... 없음</code> → 윈도우는 <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git-scm.com</a>에서 설치, 맥은 <code>xcode-select --install</code> 후 다시 시도.
   <br>❔ <code>이 시스템에서 스크립트를 실행할 수 없으므로</code> → 위 명령의 <code>-ExecutionPolicy Bypass</code>로 실행하면 됩니다.</p>
-  <p>설치되는 것: 설정 <code>~/.gjc-bai/agent/</code> + 런처 <code>bai-gjc</code>. 기존 <code>gjc</code>·<code>free-gjc</code>는 건드리지 않습니다.</p>
+  <p>설치되는 것: 설정 <code>~/.gjc-bai/agent/</code> + 런처 <code>bai-gjc</code>. 기존 <code>gjc</code>·<code>free-gjc</code>는 건드리지 않고, 프로젝트 폴더의 <code>.gjc/</code> 스킬·설정은 그대로 읽습니다.</p>
+  <div class="warn">🔄 <b>예전에 설치한 분(업데이트):</b> 설치 스크립트는 이미 있는 <code>config.yml</code>·<code>models.yml</code>을 덮어쓰지 않습니다. <code>git pull</code> 후 맥/리눅스는 <code>bash install.sh --force</code>, 윈도우는 <code>powershell -ExecutionPolicy Bypass -File .\install.ps1 -Force</code>. 기존 파일은 <code>.bak-날짜시각</code>으로 백업됩니다.
+  <br>gjc 본체는 평소대로 <code>gjc update</code> — <code>bai-gjc</code>도 같이 올라갑니다.</div>
 
   <h2 id="bai">5. B.AI 가입 → 충전 → API 키 발급</h2>
   <ol>
@@ -147,10 +157,10 @@ bash install.sh</code></pre>
       <br><span class="muted">위 링크는 이 가이드 작성자 레퍼럴입니다. 가입자는 손해 없고, 작성자에게 소량 코인이 들어옵니다. 싫으면 <code>https://chat.b.ai/chat</code>로 직접 가세요.</span></li>
     <li><b>충전:</b> 왼쪽 메뉴 <b>Top up</b>.
       <ul>
-        <li><span class="tag sale">1+1</span> <b>BNB Chain</b> 선택 → 지갑에서 USDT/BNB 등 전송. 몇 분 뒤 <b>2배</b>로 들어옴.</li>
-        <li><span class="tag sale">1+0.5</span> 카드(Stripe)/기타 → <b>1.5배</b>.</li>
+        <li>카드(Stripe) 또는 온체인(BNB Chain 등) 결제.</li>
+        <li>충전 보너스 비율·유효기간은 결제 수단마다 다르고 수시로 바뀝니다. <b>Top up 화면 표시</b>를 확인하세요.</li>
       </ul>
-      <span class="muted">처음엔 $5~10만. 보너스는 30일 유효.</span></li>
+      <span class="muted">처음엔 $5~10만.</span></li>
     <li><b>API 키:</b> 왼쪽 메뉴 <b>API Key</b>(또는 설정) → <b>Create</b> → 이름 아무거나 → 나온 <code>sk-...</code> 복사.</li>
   </ol>
   <div class="warn">키는 <b>생성 직후 한 번만</b> 보이는 경우가 많습니다. 바로 복사해서 다음 단계로. 주소창이 <code>chat.b.ai</code> 또는 <code>chat.bankofai.io</code>인지 결제 전에 꼭 확인.</div>
@@ -166,20 +176,19 @@ source ~/.zshrc</code></pre>
   <p class="muted">(오래된 셸이면 <code>~/.zshrc</code> → <code>~/.bashrc</code> 로 바꿔 쓰세요.)</p>
 
   <h2 id="models">7. 모델 고르기</h2>
-  <p>기본값이 이미 <b>전부 90% 할인 모델</b>이라 그냥 써도 됩니다.</p>
+  <p>기본값이 이미 <b>지금 할인율 기준 가성비 배치</b>라 그냥 써도 됩니다. 목록이 곧 폴백 순서 — 1순위가 오류·과부하면 다음 모델로 자동 전환됩니다.</p>
   <table>
-    <tr><th>역할</th><th>기본 모델</th><th>할인</th><th>비고</th></tr>
-    <tr><td>메인(default)·architect</td><td><code>bai/deepseek-v4.1-flash</code></td><td><span class="tag sale">90%</span></td><td>552B MoE, 1M 컨텍스트, 이미지 입력 가능</td></tr>
-    <tr><td>executor</td><td><code>bai/glm-5.3-flash</code></td><td><span class="tag sale">90%</span></td><td>1M 컨텍스트, 코딩 일꾼</td></tr>
-    <tr><td>planner·critic</td><td><code>bai/qwen3.8-flash</code></td><td><span class="tag sale">90%</span></td><td>1M 컨텍스트, 저가</td></tr>
+    <tr><th>역할</th><th>1순위</th><th>막히면 →</th><th>비고</th></tr>
+    <tr><td>메인(default)·architect</td><td><code>bai/mimo-v2.6-pro</code> <span class="tag sale">50%</span></td><td><code>bai/deepseek-v4.1-flash</code> <span class="tag sale">40%</span> → <code>bai/mimo-v2.6-flash</code>(default만)</td><td>1M 컨텍스트</td></tr>
+    <tr><td>executor</td><td><code>bai/mimo-v2.6-flash</code> <span class="tag sale">90%</span></td><td><code>bai/qwen3.8-flash</code> → <code>bai/glm-5.3-flash</code></td><td>가장 싼 일꾼</td></tr>
+    <tr><td>planner·critic</td><td><code>bai/qwen3.8-flash</code> <span class="tag sale">70%</span></td><td><code>bai/mimo-v2.6-flash</code></td><td>1M 컨텍스트</td></tr>
   </table>
-  <p>바꾸고 싶으면 <code>~/.gjc-bai/agent/config.yml</code>의 <code>modelRoles:</code>에서 한 줄만 교체. 준비된 후보:</p>
-  <pre><code>bai/glm-5.3          # GLM-5.3 풀사이즈 (표준가의 90%)
-bai/qwen3.8-max      # Qwen 최상위 (표준가)
-bai/minimax-m3       # MiniMax M3, 1M ctx, 저가
-bai/deepseek-v4-flash  # 예전 이름 — V4.1로 자동 라우팅</code></pre>
-  <p class="muted">B.AI에 있는 다른 모델(Kimi K3, GPT, Claude 등)도 <code>~/.gjc-bai/agent/models.yml</code>에 항목 추가하면 같은 키로 됩니다. 정확한 id는 <code>curl https://api.b.ai/v1/models -H "Authorization: Bearer $BAI_API_KEY"</code>로 확인. <b>Claude/GPT는 할인 없음</b> — 실수로 고르지 않게 기본 목록엔 뺐습니다.</p>
-  <div class="warn">🕐 <b>DeepSeek 시간대 요금:</b> 중국 평일 09–12시·14–18시(한국 10–13시·15–19시)가 피크로 2배. 그 외·주말은 오프피크(절반). 할인 10%는 양쪽에 동일 적용.</div>
+  <p>바꾸고 싶으면 <code>~/.gjc-bai/agent/config.yml</code>의 <code>modelRoles:</code>에서 목록 순서를 바꾸거나 줄을 교체. <code>models.yml</code>에 미리 넣어 둔 후보:</p>
+  <pre><code>bai/deepseek-v4.1-flash   # 40% 할인, 비피크엔 단가 절반 — 메인으로 쓰고 싶으면 default 맨 위로
+bai/glm-5.3-flash         # 30% 할인
+bai/glm-5.3               # GLM-5.3 풀사이즈 (10% 할인)</code></pre>
+  <p class="muted">B.AI의 다른 모델(Kimi K3, GPT, Claude, Gemini 등)도 gjc가 자동으로 목록에 불러와 같은 키로 됩니다. 정확한 id는 <code>curl https://api.b.ai/v1/models -H "Authorization: Bearer $BAI_API_KEY"</code>로 확인. <b>이 모델들은 할인이 없고 훨씬 비쌉니다</b> — 실수로 고르지 않게 기본 배치에는 넣지 않았습니다.</p>
+  <div class="warn">🕐 <b>DeepSeek 시간대 요금:</b> 중국 평일 09–12시·14–18시(한국 10–13시·15–19시)가 피크. 그 외·주말은 오프피크(절반). 40% 할인은 양쪽에 동일 적용.</div>
 
   <h2 id="verify">8. 확인 &amp; 첫 대화</h2>
   <pre><code>bai-gjc config get modelRoles       # 역할별 모델이 찍히면 설정 OK
@@ -194,9 +203,9 @@ bai-gjc "파이썬으로 계산기 만들어줘"    # 한 번에 시키기</code
     <tr><th>증상</th><th>해결</th></tr>
     <tr><td><code>BAI_API_KEY 가 비어 있습니다</code></td><td>6번대로 키 넣고 <b>터미널 새로</b> 열기.</td></tr>
     <tr><td><code>401</code> / <code>Invalid token</code></td><td>키 오타·잘못 복사. B.AI에서 키 다시 만들어 6번 재실행.</td></tr>
-    <tr><td><code>402</code> / <code>insufficient balance</code> / 잔액 부족</td><td>연결은 됨. Top up에서 충전. 보너스 크레딧 30일 만료도 확인.</td></tr>
+    <tr><td><code>400</code>·<code>402</code> / <code>credit insufficient balance</code> / 잔액 부족</td><td>연결은 됨. Top up에서 충전. 보너스 크레딧 만료도 확인. B.AI는 요청 전에 예상 비용만큼 잔액을 확인하므로, 잔액이 아주 적으면 짧은 질문도 거절됩니다.</td></tr>
     <tr><td><code>403 access_denied</code></td><td>Premium 태그 모델(일부 GPT/Claude)은 계정 등급 제한. 기본 할인 모델로 되돌리기.</td></tr>
-    <tr><td><code>no match</code> / 모델 못 찾음</td><td>B.AI가 모델 id를 바꾼 것. <code>curl https://api.b.ai/v1/models -H "Authorization: Bearer $BAI_API_KEY"</code>로 현재 id 확인 후 <code>~/.gjc-bai/agent/models.yml</code>·<code>config.yml</code> 수정. DeepSeek은 <code>deepseek-v4-flash</code>로 바꿔보기.</td></tr>
+    <tr><td><code>no match</code> / 모델 못 찾음</td><td>B.AI가 모델 id를 바꾼 것. <code>curl https://api.b.ai/v1/models -H "Authorization: Bearer $BAI_API_KEY"</code>로 현재 id 확인 후 <code>~/.gjc-bai/agent/models.yml</code>·<code>config.yml</code> 수정. 예전 설정의 <code>deepseek-v4-flash</code>·<code>qwen3.8-max</code>·<code>minimax-m3</code>가 보이면 4번의 <code>--force</code> 재설치.</td></tr>
     <tr><td><code>400</code> + 이미지 관련</td><td>DeepSeek은 이미지를 <code>system</code>/<code>assistant</code> 위치에 넣으면 400. user 메시지에서만 첨부.</td></tr>
     <tr><td><code>Provider stream timed out</code></td><td>런처가 첫 응답 5분/유휴 3분으로 잡아둠. 그래도 나면 대화가 너무 긴 것 — <code>/compact</code> 또는 새 세션.</td></tr>
     <tr><td>B.AI 접속이 안 됨</td><td>대체 주소 <code>https://chat.bankofai.io/chat</code>. 안드로이드 앱의 Service Availability에서 API 주소 확인 가능.</td></tr>
@@ -228,7 +237,7 @@ bai-gjc "파이썬으로 계산기 만들어줘"    # 한 번에 시키기</code
   <footer>
     bai-gjc-starter · <a href="https://github.com/yazzang-homelab/bai-gjc-starter" target="_blank" rel="noopener">GitHub</a> ·
     이 문서와 repo에는 API 키·개인정보가 하나도 없습니다. · 이 가이드는 무료 AI(free-gjc-starter 세팅의 gjc)가 작성했습니다.
-    <br><span class="muted">문서 버전: 2026-09-22a · 이벤트 정보 출처: <a href="https://docs.b.ai/llmservice/promotions-and-pricing-notices/" target="_blank" rel="noopener">docs.b.ai</a></span>
+    <br><span class="muted">문서 버전: 2026-10-15a · 이벤트 정보 출처: <a href="https://docs.b.ai/llmservice/promotions-and-pricing-notices/" target="_blank" rel="noopener">docs.b.ai</a></span>
   </footer>
 
 </div>
